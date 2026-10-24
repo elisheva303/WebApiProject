@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>    
+    <style>
+    body {
+        display: flex;
+        gap: 15px;
+    }
+
+    .reg {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .login {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    input {
+        width: 200px;
+        height: 10px;
+    }
+
+    button {
+        width: 200px;
+        height: 50px;
+    }
+</style>
+</head>
+
+<body>
+    <div class="reg">
+        <div><input id="regUserName" type="text" placeholder="הכנס אימייל או שם משתמש" /></div>
+        <div><input id="regPassword" type="password" placeholder="הכנס סיסמא" /></div>
+        <div><input id="regFirstName" type="text" placeholder="שם פרטי" /></div>
+        <div><input id="regLastName" type="text" placeholder="שם משפחה" /></div>
+        <button onclick="postdata()">להרשם</button>
+    </div>
+    <div class="log">
+        <input type="text" id="UserName" placeholder="הכנס שם משתמש" />
+        <input type="password" id="Password" placeholder="הכנס סיסמא" />
+        <button onclick="login()">התחברות</button>
+    </div>
+    <a href="UpDate.html">update detailes</a>
+</body>
+</html>
+<script src="Index.js"></script>

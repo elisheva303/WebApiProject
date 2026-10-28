@@ -8,7 +8,9 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Users : ControllerBase
+    //fix: A controller class name ends with Controller. The route stays api/Users.
+    //fix: The file is renamed to UsersController.cs, so it matches the class
+    public class UsersController : ControllerBase
     {
         // GET: api/<Users>
         [HttpGet]
@@ -16,7 +18,8 @@ namespace WebApi.Controllers
         {
             return new string[] { "value1", "value2" };
         }
-        static string filePath = "text.txt";
+        //fix: The path never changes, so it can be readonly
+        static readonly string filePath = "text.txt";
 
         // GET api/<Users>/5
         [HttpGet("{id}")]
@@ -41,6 +44,7 @@ namespace WebApi.Controllers
 
         // POST api/<Users>
         [HttpPost]
+        //In C#, parameters are written in camelCase (postUser)
         public ActionResult<User> Post([FromBody] User PostUser)
         {
             int numberOfUsers = System.IO.File.ReadLines(filePath).Count();
@@ -70,6 +74,8 @@ namespace WebApi.Controllers
 
         // PUT api/<Users>/5
         [HttpPut("{id}")]
+        //The assignment asks PUT to return Ok(): change void to IActionResult and return Ok() at the end.
+        //In C#, parameters are written in camelCase (userUpdate)
         public void Put(int id, [FromBody] User userupdate)
         {
             string textToReplace = string.Empty;
@@ -82,11 +88,17 @@ namespace WebApi.Controllers
                     User user =
                     JsonSerializer.Deserialize<User>(currentUserInFile);
                     if (user.Id == id)
+                    {
                         textToReplace = currentUserInFile;
+                        //fix: Found- break
+                        break;
+                    }
                 }
             }
             if(textToReplace != string.Empty)
 {
+                //fix: Keep the id, otherwise the updated user is saved without it
+                userupdate.Id = id;
                 string text = System.IO.File.ReadAllText(filePath);
                 text = text.Replace(textToReplace,
                 JsonSerializer.Serialize(userupdate));

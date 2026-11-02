@@ -66,4 +66,33 @@ const login = async () => {
         console.log("error", error);
     }
 };
+const strongPassword = async () => {
+    const passwordInput = document.getElementById("regPassword").value;
+
+    try {
+        const response = await fetch('api/Password', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(passwordInput)
+        });
+
+        if (response.ok)
+        {
+            alert("check your password...")
+            const score = await response.json();
+            document.getElementById("graf").value = score;
+
+            const colors = ["#d32f2f", "#f57c00", "#fbc02d", "#7cb342", "#2e7d32"];
+            document.getElementById("graf").style.color = colors[score];
+        }
+        else
+        {
+            alert("password is not strong ");
+        }
+    } catch (error) {
+        console.log("error", error);
+    }
+};
 

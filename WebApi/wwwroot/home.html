@@ -37,6 +37,8 @@
     <div class="reg">
         <div><input id="regUserName" type="text" placeholder="הכנס אימייל או שם משתמש" /></div>
         <div><input id="regPassword" type="password" placeholder="הכנס סיסמא" /></div>
+        <button onclick="strongPassword()">הצג חוזק סיסמא</button>
+        <progress max="4" value="0" id="graf"></progress>
         <div><input id="regFirstName" type="text" placeholder="שם פרטי" /></div>
         <div><input id="regLastName" type="text" placeholder="שם משפחה" /></div>
         <button onclick="postdata()">להרשם</button>

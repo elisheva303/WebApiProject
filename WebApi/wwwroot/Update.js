@@ -1,15 +1,15 @@
 ﻿
 const user1 = JSON.parse(sessionStorage.getItem("user"));
 
-const emailInput = document.getElementById("emailupdate").value;
-const passwordInput = document.getElementById("updatePassword").value;
-const firstNameInput = document.getElementById("updateFirstName").value;
-const lastNameInput = document.getElementById("updateLastName").value;
+const emailInput = document.getElementById("emailupdate");
+const passwordInput = document.getElementById("updatePassword");
+const firstNameInput = document.getElementById("updateFirstName");
+const lastNameInput = document.getElementById("updateLastName");
 
-// Email.value = user1.emailInput;
-// Password.value = user1.passwordInput;
-// FirstName.value = user1.firstNameInput;
-// LastName.value = user1.lastNameInpu;
+ Email.value = user1.emailInput;
+ Password.value = user1.passwordInput;
+ FirstName.value = user1.firstNameInput;
+ LastName.value = user1.lastNameInpu;
 
 
 async function update() 

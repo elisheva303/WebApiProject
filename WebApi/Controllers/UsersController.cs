@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Service;
 using System.Text.Json;
-using Service;
+//fix: removed the duplicate using Service; line
 
 
 
@@ -28,6 +28,7 @@ namespace WebApi.Controllers
         }
         static  readonly string filePath = "text.txt";
 
+        //The assignment asks GET by id to return the user with this id, or NotFound / NoContent if there is none: how would you read the user from the file?
         // GET api/<Users>/5
         [HttpGet("{id}")]
         public string Get(int id)
@@ -49,6 +50,7 @@ namespace WebApi.Controllers
 
             User user = usersService.GetUser(loginUser);
             if (user == null)
+                //The assignment asks a login with a wrong password to return 204 NoContent: what should this return instead of NotFound?
                 return NotFound();
             return Ok(user);
 

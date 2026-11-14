@@ -4,6 +4,7 @@
     const firstNameInput = document.getElementById("regFirstName");
     const lastNameInput = document.getElementById("regLastName");
 
+        //In JavaScript, variables are written in camelCase: postUser.
     const PostUser = {
         Email: emailInput.value,
         Password: passwordInput.value,

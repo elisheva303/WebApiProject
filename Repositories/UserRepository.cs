@@ -10,6 +10,7 @@ namespace Repositories
     {
         public User AddUser(User user)
         {
+            //On another computer the E:/ path does not exist: use a path relative to the project
             string path = "E:/WebApi/Repositories/text.txt";
 
             int numberOfUsers = System.IO.File.ReadLines(path).Count();

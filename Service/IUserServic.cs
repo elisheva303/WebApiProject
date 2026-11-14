@@ -2,6 +2,7 @@
 
 namespace Service
 {
+        //IUserServic looks like a typo: IUserService is clearer
     public interface IUserServic
     {
         User AddUser(User user);

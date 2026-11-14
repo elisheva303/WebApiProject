@@ -6,6 +6,7 @@ const passwordInput = document.getElementById("updatePassword");
 const firstNameInput = document.getElementById("updateFirstName");
 const lastNameInput = document.getElementById("updateLastName");
 
+        //Email is never defined: which element should this value be written to, and does user1 have an emailInput field?
  Email.value = user1.emailInput;
  Password.value = user1.passwordInput;
  FirstName.value = user1.firstNameInput;

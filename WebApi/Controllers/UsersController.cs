@@ -26,7 +26,6 @@ namespace WebApi.Controllers
         {
             return new string[] { "value1", "value2" };
         }
-        static  readonly string filePath = "text.txt";
 
         // GET api/<Users>/5
         [HttpGet("{id}")]
@@ -38,9 +37,9 @@ namespace WebApi.Controllers
 
         // POST api/<Users>
         [HttpPost]
-        public ActionResult<User> Post([FromBody] User postUser)
+        public async Task<ActionResult<User>> Post([FromBody] User postUser)
         {
-            postUser=usersService.AddUser(postUser);
+             postUser=await usersService.AddUser(postUser);
             return CreatedAtAction(nameof(Get), new { id = postUser.Id }, postUser);
         }
         [HttpPost("Login")]
@@ -56,9 +55,9 @@ namespace WebApi.Controllers
 
         // PUT api/<Users>/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] User userUpdate)
+        public async Task<IActionResult> Put(int id, [FromBody] User userUpdate)
         {
-          usersService.UpdateUser(id, userUpdate);
+            await usersService.UpdateUser(id, userUpdate);
             return Ok();
         }
 

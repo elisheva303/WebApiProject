@@ -8,24 +8,24 @@ namespace Service
 {
     public class UserServic : IUserServic
     {
-        IUserRepository userRepository ;
+       private IUserRepository userRepository ;
 
         public UserServic(IUserRepository userRepository)
         {
             this.userRepository = userRepository;
         }
 
-        public User AddUser(User user)
+        public async Task<User> AddUser(User user)
         {
-            return userRepository.AddUser(user);
+            return await userRepository.AddUser(user);
         }
         public User GetUser(LoginUser logInUser)
         {
             return userRepository.GetUser(logInUser);
         }
-        public void UpdateUser(int id, User updateuser)
+        public async Task UpdateUser(int id, User updateuser)
         {
-            userRepository.UpdateUser(id, updateuser);
+            await userRepository.UpdateUser(id, updateuser);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Entities
 {
-    public class User
+    public partial class User
     {
         public int Id { get; set; }
 
@@ -21,5 +21,6 @@ namespace Entities
 
         [Required]
         public string Password { get; set; }
+        public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
     }
 }

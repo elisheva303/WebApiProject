@@ -9,6 +9,7 @@ namespace Repositories
     public class UserRepository : IUserRepository
     {
         StoreDBContext _context;
+        //This line doesn't compile: StoreDBContext can't be found in this project (the first build error)
         public UserRepository(StoreDBContext context)
         {
             _context = context;

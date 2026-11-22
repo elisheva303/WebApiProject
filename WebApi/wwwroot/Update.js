@@ -6,7 +6,9 @@ const passwordInput = document.getElementById("updatePassword");
 const firstNameInput = document.getElementById("updateFirstName");
 const lastNameInput = document.getElementById("updateLastName");
 
+//Email is never defined in this file: which element should it be, and does user1 have an emailInput property?
  Email.value = user1.emailInput;
+//Password, FirstName and LastName are never defined in this file either: which elements should they be?
  Password.value = user1.passwordInput;
  FirstName.value = user1.firstNameInput;
  LastName.value = user1.lastNameInpu;

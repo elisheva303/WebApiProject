@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Service;
 using System.Text.Json;
-using Service;
+//fix: Removed the duplicate using Service; line, it was already at the top
+
 
 
 
@@ -16,6 +17,7 @@ namespace WebApi.Controllers
 
         IUserServic usersService ;
 
+        //The assignment asks the users controller to take IPasswordService and call it: which constructor parameter will you add for it?
         public UsersController(IUserServic usersService)
         {
             this.usersService = usersService;
@@ -37,6 +39,7 @@ namespace WebApi.Controllers
 
         // POST api/<Users>
         [HttpPost]
+        //The assignment asks POST to return 400 for a weak password: where do you check the strength before AddUser?
         public async Task<ActionResult<User>> Post([FromBody] User postUser)
         {
              postUser=await usersService.AddUser(postUser);
@@ -57,6 +60,7 @@ namespace WebApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] User userUpdate)
         {
+            //The assignment asks PUT to return 400 for a weak password: where do you check the strength before UpdateUser?
             await usersService.UpdateUser(id, userUpdate);
             return Ok();
         }
